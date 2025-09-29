@@ -1,0 +1,271 @@
+/* ================================
+   RESETEO Y BASE
+================================== */
+* { /* Selector universal: aplica a todos los elementos */
+    margin: 0;               /* Quita márgenes por defecto del navegador */
+    padding: 0;              /* Quita relleno por defecto del navegador */
+    box-sizing: border-box;  /* Hace que padding y borde no aumenten el ancho total */
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Fuente principal con respaldo en Arial */
+    line-height: 1.7;                          /* Altura de línea más cómoda para lectura */
+    background-color: #f8f9fb;                 /* Fondo gris claro */
+    color: #2c3e50;                            /* Color base del texto */
+}
+
+/* Contenedor general */
+.container {
+    width: 90%;            /* Ocupa el 90% del ancho de la pantalla */
+    margin: 0 auto;        /* Centrado horizontal */
+    max-width: 1200px;     /* Máximo ancho permitido */
+}
+
+/* ================================
+   ENCABEZADO Y NAVEGACIÓN
+================================== */
+header {
+    background: linear-gradient(90deg, #1a1a2e, #16213e); /* Fondo degradado horizontal */
+    color: #fff;                 /* Texto en blanco */
+    padding: 1rem 0;             /* Espaciado interno superior e inferior */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Sombra debajo del header */
+    position: sticky;            /* El header se queda fijo arriba al hacer scroll */
+    top: 0;                      /* Lo fija al borde superior */
+    z-index: 1000;               /* Da prioridad sobre otros elementos */
+}
+
+header h1 {
+    font-size: 2rem;             /* Tamaño del título */
+    text-align: center;          /* Centrado horizontal */
+    font-weight: 600;            /* Seminegrita */
+    margin-bottom: 0.5rem;       /* Espacio inferior */
+}
+
+header nav ul {
+    list-style: none;            /* Quita viñetas */
+    text-align: center;          /* Centra la lista */
+}
+
+header nav ul li {
+    display: inline-block;       /* Coloca los elementos en fila */
+    margin: 0 10px;              /* Espaciado lateral */
+    position: relative;          /* Necesario para colocar dropdowns */
+}
+
+header nav ul li a {
+    color: #fff;                 /* Texto blanco */
+    text-decoration: none;       /* Quita el subrayado */
+    font-weight: 500;            /* Peso medio */
+    padding: 10px 15px;          /* Espaciado interno */
+    border-radius: 6px;          /* Bordes redondeados */
+    transition: background 0.3s ease, color 0.3s ease; /* Transición en hover */
+}
+
+header nav ul li a:hover {
+    background: #00adb5;         /* Fondo celeste al pasar */
+    color: #fff;                 /* Texto se mantiene blanco */
+}
+
+/* ================================
+   MENÚ DESPLEGABLE
+================================== */
+.dropdown-content {
+    display: none;                        /* Oculto por defecto */
+    position: absolute;                   /* Posición flotante */
+    top: 100%;                            /* Ubicado debajo del elemento padre */
+    left: 0;                              /* Alineado a la izquierda */
+    background: #fff;                     /* Fondo blanco */
+    border-radius: 6px;                   /* Bordes redondeados */
+    min-width: 250px;                     /* Ancho mínimo */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra flotante */
+    text-align: left;                     /* Texto alineado a la izquierda */
+    animation: fadeIn 0.3s ease-in-out;   /* Animación de entrada */
+}
+
+.dropdown-content li {
+    display: block;                       /* Cada item ocupa toda la línea */
+}
+
+.dropdown-content li a {
+    color: #2c3e50;                       /* Texto gris oscuro */
+    padding: 12px 15px;                   /* Espaciado interno */
+    display: block;                       /* Toda el área es clickeable */
+    transition: background 0.2s;          /* Animación suave en hover */
+}
+
+.dropdown-content li a:hover {
+    background: #f1f1f1;                  /* Fondo gris claro al pasar */
+    color: #00adb5;                       /* Texto azul */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;                       /* Se muestra al pasar el mouse */
+}
+
+/* Animación de aparición del dropdown */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); } /* Comienza transparente y abajo */
+    to { opacity: 1; transform: translateY(0); }      /* Termina visible y en posición */
+}
+
+/* ================================
+   SECCIONES
+================================== */
+section {
+    padding: 3rem 0;                       /* Espaciado interno arriba/abajo */
+    background: #fff;                      /* Fondo blanco */
+    margin-bottom: 2rem;                   /* Separación entre secciones */
+    border-radius: 10px;                   /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+h2 {
+    font-size: 1.8rem;                     /* Tamaño del subtítulo */
+    margin-bottom: 1rem;                   /* Espacio inferior */
+    color: #16213e;                        /* Texto azul oscuro */
+    border-left: 6px solid #00adb5;        /* Barra decorativa lateral */
+    padding-left: 10px;                    /* Espacio entre barra y texto */
+    font-weight: 600;                      /* Seminegrita */
+}
+
+/* ================================
+   GALERÍA / PROYECTOS
+================================== */
+.project-gallery {
+    display: flex;               /* Usa flexbox */
+    flex-direction: column;      /* Alinea en columna */
+    gap: 1.5rem;                 /* Espacio entre items */
+    justify-content: center;     /* Centrado vertical */
+    align-items: center;         /* Centrado horizontal */
+}
+
+.project-item {
+    width: 85%;                  /* Ancho del item */
+    text-align: center;          /* Texto centrado */
+    background-color: #fff;      /* Fondo blanco */
+    padding: 1.2rem;             /* Espaciado interno */
+    border-radius: 10px;         /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease; /* Suaviza la animación hover */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Se eleva al pasar mouse */
+}
+
+.project-item img {
+    width: 100%;                 /* Ocupa todo el ancho disponible */
+    border-radius: 10px;         /* Bordes redondeados */
+    margin-bottom: 1rem;         /* Separación inferior */
+}
+
+.project-item p {
+    font-size: 1rem;             /* Tamaño de texto */
+    color: #555;                 /* Color gris oscuro */
+}
+
+/* ================================
+   FORMULARIO DE CONTACTO
+================================== */
+form {
+    display: flex;               /* Flexbox */
+    flex-direction: column;      /* Apilado en columna */
+    gap: 1rem;                   /* Espacio entre campos */
+}
+
+form label {
+    font-weight: 600;            /* Negrita media */
+}
+
+form input, form textarea {
+    padding: 0.7rem;             /* Relleno interno */
+    border: 1px solid #ccc;      /* Borde gris claro */
+    border-radius: 6px;          /* Bordes redondeados */
+    font-size: 1rem;             /* Tamaño del texto */
+    transition: border-color 0.3s ease; /* Transición en foco */
+}
+
+form input:focus, form textarea:focus {
+    border-color: #00adb5;       /* Borde azul al enfocar */
+    outline: none;               /* Quita borde predeterminado */
+}
+
+form button {
+    padding: 0.8rem;             /* Espaciado interno */
+    background: #00adb5;         /* Fondo azul celeste */
+    color: #fff;                 /* Texto blanco */
+    font-size: 1rem;             /* Tamaño del texto */
+    font-weight: 600;            /* Negrita media */
+    border: none;                /* Sin borde */
+    border-radius: 6px;          /* Bordes redondeados */
+    cursor: pointer;             /* Cambia cursor a mano */
+    transition: background 0.3s; /* Suaviza el hover */
+}
+
+form button:hover {
+    background: #008891;         /* Azul más oscuro al pasar */
+}
+
+/* ================================
+   PIE DE PÁGINA
+================================== */
+footer {
+    background-color: #16213e;   /* Fondo azul oscuro */
+    color: #fff;                 /* Texto blanco */
+    text-align: center;          /* Centrado */
+    padding: 1.5rem 0;           /* Espaciado vertical */
+    margin-top: 2rem;            /* Separación respecto al contenido */
+    font-size: 0.9rem;           /* Texto más pequeño */
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;       /* Título más pequeño en móviles */
+    }
+
+    header nav ul li {
+        display: block;          /* Menú en columna */
+        margin: 10px 0;          /* Espaciado vertical */
+    }
+
+    .dropdown-content {
+        position: static;        /* Dropdown ya no es flotante */
+        box-shadow: none;        /* Sin sombra */
+        background: #1a1a2e;     /* Fondo oscuro */
+    }
+
+    .dropdown-content li a {
+        color: #fff;             /* Texto blanco dentro del menú */
+    }
+
+    .project-item {
+        width: 95%;              /* Más ancho en pantallas pequeñas */
+    }
+}
+
+/* ================================
+   ESTILOS PARA IMÁGENES
+================================== */
+main img {
+    width: 250px;             /* Ancho fijo */
+    height: 180px;            /* Alto fijo */
+    object-fit: cover;        /* Ajusta recortando la imagen */
+    display: block;           /* Se comporta como bloque */
+    margin: 10px auto;        /* Centrado horizontal y márgenes verticales */
+    border-radius: 8px;       /* Bordes redondeados */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* Sombra ligera */
+}
+
+main img:hover {
+    transform: scale(1.05);   /* Zoom suave */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+@media (min-width: 1024px) {
+    .project-item {
+        width: 60%;           /* Más angosto en pantallas grandes */
+    }
+}
